@@ -25,8 +25,8 @@ RUN	   apk update \
 	&& rm -rf ${TEMP_DIR}
 
 
-COPY jmeter-plugins-influxdb2-listener-2.7.jar 		${JMETER_LIB}
-COPY mqtt-xmeter-2.0.2-jar-with-dependencies.jar	${JMETER_LIB}
+COPY jmeter-plugins-influxdb2-listener-2.7.jar 		${JMETER_LIB}/ext
+COPY mqtt-xmeter-2.0.2-jar-with-dependencies.jar	${JMETER_LIB}/ext
 
 ENV PATH $PATH:$JMETER_BIN
 
