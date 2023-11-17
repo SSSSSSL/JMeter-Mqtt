@@ -2,10 +2,11 @@ FROM alpine:3.18.4
 
 MAINTAINER SSSSSSL <SSSSSSL@github.com>
 
+# mqtt sampler needs openjdk >= 8.0
 ARG PACKAGE_JDK="openjdk8"
 ARG PACKAGE_SHELL="bash"
 
-ARG JMETER_VERSION="5.6"
+ARG JMETER_VERSION="5.6.2"
 ARG JMETER_URL="https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.zip"
 
 ARG TEMP_DIR="/tmp/tmp_jmeter"
@@ -25,7 +26,6 @@ RUN	   apk update \
 	&& rm -rf ${TEMP_DIR}
 
 
-COPY jmeter-plugins-influxdb2-listener-2.7.jar 		${JMETER_LIB}/ext
 COPY mqtt-xmeter-2.0.2-jar-with-dependencies.jar	${JMETER_LIB}/ext
 
 ENV PATH $PATH:$JMETER_BIN
